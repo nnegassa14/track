@@ -134,19 +134,14 @@ def AStar(S, neighborhoodFn, goalFn, visitFn, heuristicFn):
                     pastCost = len(newPath) - 1
                     futureCost = heuristicFn(neighbor)
                     totalCost = pastCost + futureCost
-                    # marker
                     if totalCost > 80:
                         pass
                     else:
-                        frontier.put((pastCost, newPath))
-                    # if totalCost > 80:
-                    #     pass
-                    # else:
-                    #     visited[rankdict] = pastCost
-                    #
-                    # frontier.put((pastCost, newPath))
+                        visited[rankdict] = pastCost
 
-#                     frontier.put((pastCost, newPath))
+                    frontier.put((pastCost, newPath))
+
+                    frontier.put((pastCost, newPath))
 
     return [-1, None]
 

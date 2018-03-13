@@ -132,16 +132,20 @@ def AStar(S, neighborhoodFn, goalFn, visitFn, heuristicFn):
                 if neighbor not in path:
                     newPath = path + [neighbor]
                     pastCost = len(newPath) - 1
-                    visited[rankdict] = pastCost
-                    frontier.put((pastCost, newPath))
-#                when adding branch and bound, use
-#                 if neighbor not in path:
-#                 futureCost = heuristicFn(neighbor)
-#                 totalCost = pastCost + futureCost
-#                 if totalCost > 80:
-#                     pass
-#                 else:
-#                     visited[rankdict] = pastCost
+                    futureCost = heuristicFn(neighbor)
+                    totalCost = pastCost + futureCost
+                    # marker
+                    if totalCost > 80:
+                        pass
+                    else:
+                        frontier.put((pastCost, newPath))
+                    # if totalCost > 80:
+                    #     pass
+                    # else:
+                    #     visited[rankdict] = pastCost
+                    #
+                    # frontier.put((pastCost, newPath))
+
 #                     frontier.put((pastCost, newPath))
 
     return [-1, None]
